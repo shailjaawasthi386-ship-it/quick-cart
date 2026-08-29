@@ -317,8 +317,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Ladyfinger (Bhindi)",
     "description": "",
-    "price": 70,
-    "offerPrice": 48,
+    "price": 75,
+    "offerPrice": 60,
     "image": [
       "/bhindi.webp"
     ],
