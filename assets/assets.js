@@ -476,6 +476,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738669900000,
     "__v": 0
+  },
+  {
+    "_id": "veg_lemon_24",
+    "userId": "user_grocery_admin",
+    "name": "Lemon (Nimbu)",
+    "description": "",
+    "price": 180,
+    "offerPrice": 150,
+    "image": [
+      "/lemon.jpeg"
+    ],
+    "category": "Vegetables",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670000000,
+    "__v": 0
   }
 ]
 
