@@ -407,8 +407,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Pumpkin (Kaddu)",
     "description": "",
-    "price": 45,
-    "offerPrice": 30,
+    "price": 55,
+    "offerPrice": 40,
     "image": [
       "/kaddu.webp"
     ],
