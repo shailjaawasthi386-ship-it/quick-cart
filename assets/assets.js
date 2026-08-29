@@ -582,6 +582,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738670600000,
     "__v": 0
+  },
+  {
+    "_id": "veg_ginger_31",
+    "userId": "user_grocery_admin",
+    "name": "Ginger (Adrak)",
+    "description": "",
+    "price": 250,
+    "offerPrice": 200,
+    "image": [
+      "/ginger.jpeg"
+    ],
+    "category": "Vegetables",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670700000,
+    "__v": 0
   }
 ]
 
