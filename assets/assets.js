@@ -302,8 +302,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Brinjal (Baingan)",
     "description": "",
-    "price": 60,
-    "offerPrice": 42,
+    "price": 75,
+    "offerPrice": 60,
     "image": [
       "/baingan.jpeg"
     ],
