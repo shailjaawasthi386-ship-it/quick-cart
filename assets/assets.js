@@ -422,8 +422,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Bitter Gourd (Karela)",
     "description": "",
-    "price": 80,
-    "offerPrice": 55,
+    "price": 100,
+    "offerPrice": 80,
     "image": [
       "/karela.jpg"
     ],
