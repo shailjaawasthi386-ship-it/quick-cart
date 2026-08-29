@@ -272,8 +272,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Onion (Pyaz)",
     "description": "",
-    "price": 60,
-    "offerPrice": 44,
+    "price": 75,
+    "offerPrice": 60,
     "image": [
       "/pyaz.jpg"
     ],
