@@ -8,27 +8,25 @@ const Orders = () => {
 
     const forwardToWhatsApp = (order) => {
         const itemsText = order.items?.map(
-            (item) => `• ${item.product.name} (${item.weight}) x ${item.quantity} = ₹${item.total}`
+            (item) => `- ${item.product.name} (${item.weight}) x ${item.quantity} = Rs. ${item.total}`
         ).join("\n") || "";
 
         const gpsLink = order.address?.coordinates
             ? `https://www.google.com/maps?q=${order.address.coordinates.lat},${order.address.coordinates.lng}`
-            : "No GPS captured";
+            : "Not Available";
 
-        const messageText = `🛒 *QUICKCART DELIVERY ORDER*
-----------------------------------
-🆔 *Order ID:* #${order._id}
-👤 *Customer:* ${order.address?.fullName || order.customer?.name}
-📞 *Customer Phone:* ${order.address?.phoneNumber}
-📍 *Delivery Address:* ${order.address?.area}, ${order.address?.city} - ${order.address?.pincode}
-🗺️ *Google Maps Pin:* ${gpsLink}
+        const messageText = `*QUICKCART DELIVERY ORDER*
 
-📦 *ITEMS TO PACK:*
+*Order ID:* #${order._id}
+*Customer:* ${order.address?.fullName || order.customer?.name}
+*Customer Phone:* ${order.address?.phoneNumber}
+*Delivery Address:* ${order.address?.area}, ${order.address?.city} - ${order.address?.pincode}
+*Google Maps Location:* ${gpsLink}
+
+*ITEMS TO PACK:*
 ${itemsText}
 
-----------------------------------
-💰 *COLLECT CASH (COD): ₹${order.amount}*
-----------------------------------`;
+*COLLECT CASH (COD):* Rs. ${order.amount}`;
 
         const encodedMsg = encodeURIComponent(messageText);
         window.open(`https://wa.me/?text=${encodedMsg}`, '_blank');

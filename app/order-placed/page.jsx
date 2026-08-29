@@ -17,29 +17,25 @@ const OrderPlaced = () => {
     if (!latestOrder) return;
 
     const itemsText = latestOrder.items?.map(
-      (item) => `• ${item.product.name} (${item.weight}) x ${item.quantity} = ₹${item.total}`
+      (item) => `- ${item.product.name} (${item.weight}) x ${item.quantity} = Rs. ${item.total}`
     ).join("\n") || "";
 
     const gpsLink = latestOrder.address?.coordinates
       ? `https://www.google.com/maps?q=${latestOrder.address.coordinates.lat},${latestOrder.address.coordinates.lng}`
-      : "No GPS captured";
+      : "Not Available";
 
-    const messageText = `🛒 *NEW ORDER PLACED ON QUICKCART!*
-----------------------------------
-🆔 *Order ID:* #${latestOrder._id}
-📅 *Date:* ${latestOrder.formattedDate || new Date().toLocaleString()}
+    const messageText = `*NEW ORDER - QUICKCART*
 
-👤 *Customer:* ${latestOrder.address?.fullName || latestOrder.customer?.name}
-📞 *Phone:* ${latestOrder.address?.phoneNumber}
-📍 *Address:* ${latestOrder.address?.area}, ${latestOrder.address?.city} - ${latestOrder.address?.pincode}
-🗺️ *Google Maps Pin:* ${gpsLink}
+*Order ID:* #${latestOrder._id}
+*Customer:* ${latestOrder.address?.fullName || latestOrder.customer?.name}
+*Phone:* ${latestOrder.address?.phoneNumber}
+*Address:* ${latestOrder.address?.area}, ${latestOrder.address?.city} - ${latestOrder.address?.pincode}
+*Google Maps Location:* ${gpsLink}
 
-📦 *ITEMS ORDERED:*
+*ITEMS ORDERED:*
 ${itemsText}
 
-----------------------------------
-💰 *TOTAL AMOUNT (COD): ₹${latestOrder.amount}*
-----------------------------------`;
+*TOTAL AMOUNT (COD):* Rs. ${latestOrder.amount}`;
 
     const encodedMsg = encodeURIComponent(messageText);
     const whatsappUrl = `https://wa.me/${storePhone}?text=${encodedMsg}`;
