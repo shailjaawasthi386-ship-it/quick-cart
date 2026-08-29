@@ -181,8 +181,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Papaya (Papita)",
     "description": "",
-    "price": 80,
-    "offerPrice": 59,
+    "price": 100,
+    "offerPrice": 80,
     "image": [
       "/papita.jpeg"
     ],
