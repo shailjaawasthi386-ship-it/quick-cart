@@ -196,8 +196,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Mango (Aam)",
     "description": "",
-    "price": 250,
-    "offerPrice": 199,
+    "price": 180,
+    "offerPrice": 150,
     "image": [
       "/aam.jpeg"
     ],
