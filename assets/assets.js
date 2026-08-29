@@ -136,8 +136,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Red Apple (Sev)",
     "description": "",
-    "price": 180,
-    "offerPrice": 139,
+    "price": 250,
+    "offerPrice": 200,
     "image": [
       "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&auto=format&fit=crop"
     ],
