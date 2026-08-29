@@ -552,6 +552,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738670400000,
     "__v": 0
+  },
+  {
+    "_id": "fruit_mosambi_29",
+    "userId": "user_grocery_admin",
+    "name": "Sweet Lemon (Mosambi)",
+    "description": "",
+    "price": 130,
+    "offerPrice": 100,
+    "image": [
+      "/mosambi.webp"
+    ],
+    "category": "Fruits",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670500000,
+    "__v": 0
   }
 ]
 
