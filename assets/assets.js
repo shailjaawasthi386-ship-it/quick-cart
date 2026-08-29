@@ -392,8 +392,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Bottle Gourd (Lauki)",
     "description": "",
-    "price": 55,
-    "offerPrice": 38,
+    "price": 75,
+    "offerPrice": 60,
     "image": [
       "/lauki.jpeg"
     ],
