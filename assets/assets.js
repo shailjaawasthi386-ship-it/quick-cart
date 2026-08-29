@@ -287,8 +287,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Green Beans (Hari Phali)",
     "description": "",
-    "price": 90,
-    "offerPrice": 65,
+    "price": 150,
+    "offerPrice": 120,
     "image": [
       "https://images.unsplash.com/photo-1567375698348-5d9d5ae99de0?w=600&auto=format&fit=crop"
     ],
