@@ -461,6 +461,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738669800000,
     "__v": 0
+  },
+  {
+    "_id": "veg_tinda_23",
+    "userId": "user_grocery_admin",
+    "name": "Indian Baby Pumpkin (Tinda)",
+    "description": "",
+    "price": 100,
+    "offerPrice": 80,
+    "image": [
+      "/tinda.jpg"
+    ],
+    "category": "Vegetables",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738669900000,
+    "__v": 0
   }
 ]
 
