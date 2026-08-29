@@ -377,8 +377,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Cucumber (Kheera)",
     "description": "",
-    "price": 50,
-    "offerPrice": 32,
+    "price": 65,
+    "offerPrice": 50,
     "image": [
       "/kheera.jpeg"
     ],
