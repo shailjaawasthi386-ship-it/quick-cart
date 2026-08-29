@@ -151,8 +151,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Pomegranate (Anaar)",
     "description": "",
-    "price": 220,
-    "offerPrice": 179,
+    "price": 250,
+    "offerPrice": 200,
     "image": [
       "/anaar.jpg"
     ],
