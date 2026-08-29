@@ -500,7 +500,7 @@ export const productsDummyData = [
     "price": 130,
     "offerPrice": 100,
     "image": [
-      "https://images.unsplash.com/photo-1601648764658-cffe7e36a58f?w=600&auto=format&fit=crop"
+      "/chilli.jpeg"
     ],
     "category": "Vegetables",
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
