@@ -1,54 +1,45 @@
 import React from "react";
-import { assets } from "@/assets/assets";
-import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="flex flex-col md:flex-row items-start justify-center px-6 md:px-16 lg:px-32 gap-10 py-14 border-b border-gray-500/30 text-gray-500">
-        <div className="w-4/5">
-          <Image className="w-28 md:w-32" src={assets.logo} alt="logo" />
-          <p className="mt-6 text-sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+    <footer className="bg-emerald-950 text-emerald-200 mt-16 border-t border-emerald-800">
+      <div className="flex flex-col md:flex-row items-start justify-between px-6 md:px-16 lg:px-24 gap-10 py-12">
+        <div className="md:w-2/5 space-y-3">
+          <div className="flex items-center gap-2">
+            <div className="bg-emerald-600 text-white font-extrabold text-xl p-1.5 rounded-xl flex items-center justify-center">
+              🥬
+            </div>
+            <div>
+              <span className="text-xl font-extrabold text-white tracking-tight">QuickCart</span>
+            </div>
+          </div>
+          <p className="text-xs text-emerald-300 leading-relaxed">
+            Fresh vegetables & fruits delivered directly to your kitchen.
           </p>
         </div>
 
-        <div className="w-1/2 flex items-center justify-start md:justify-center">
+        <div className="flex items-start justify-start md:justify-center gap-12 text-xs">
           <div>
-            <h2 className="font-medium text-gray-900 mb-5">Company</h2>
-            <ul className="text-sm space-y-2">
-              <li>
-                <a className="hover:underline transition" href="#">Home</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">About us</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">Contact us</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">Privacy policy</a>
-              </li>
+            <h3 className="font-extrabold text-white mb-3 text-sm uppercase tracking-wider">Categories</h3>
+            <ul className="space-y-2 text-emerald-300">
+              <li><a className="hover:text-amber-300 transition" href="#">Fresh Fruits</a></li>
+              <li><a className="hover:text-amber-300 transition" href="#">Fresh Vegetables</a></li>
+              <li><a className="hover:text-amber-300 transition" href="#">Organic Leafy Greens</a></li>
             </ul>
           </div>
-        </div>
 
-        <div className="w-1/2 flex items-start justify-start md:justify-center">
           <div>
-            <h2 className="font-medium text-gray-900 mb-5">Get in touch</h2>
-            <div className="text-sm space-y-2">
-              <p>+1-234-567-890</p>
-              <p>contact@greatstack.dev</p>
+            <h3 className="font-extrabold text-white mb-3 text-sm uppercase tracking-wider">Help & Support</h3>
+            <div className="space-y-2 text-emerald-300">
+              <p>📞 +91 9317401906</p>
+              <p>📞 +91 8278776764</p>
             </div>
           </div>
         </div>
       </div>
-      <p className="py-4 text-center text-xs md:text-sm">
-        Copyright 2025 © GreatStack.dev All Right Reserved.
-      </p>
+      <div className="py-4 text-center text-xs text-emerald-400 border-t border-emerald-900 bg-emerald-950/80">
+        © 2026 QuickCart. All Rights Reserved.
+      </div>
     </footer>
   );
 };

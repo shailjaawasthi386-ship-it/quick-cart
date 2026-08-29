@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { assets } from "@/assets/assets";
 import Image from "next/image";
 
 const HeaderSlider = () => {
   const sliderData = [
     {
       id: 1,
-      title: "Experience Pure Sound - Your Perfect Headphones Awaits!",
-      offer: "Limited Time Offer 30% Off",
-      buttonText1: "Buy now",
-      buttonText2: "Find more",
-      imgSrc: assets.header_headphone_image,
+      title: "Fresh Vegetables & Sweet Fruits",
+      buttonText1: "Buy Now",
+      buttonText2: "View Catalog",
+      imgUrl: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&auto=format&fit=crop"
     },
     {
       id: 2,
-      title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
-      offer: "Hurry up only few lefts!",
-      buttonText1: "Shop Now",
-      buttonText2: "Explore Deals",
-      imgSrc: assets.header_playstation_image,
+      title: "Desi Aloo, Tamatar, Pyaz & Bhindi at Best Wholesale Prices!",
+      buttonText1: "Order Now",
+      buttonText2: "View Catalog",
+      imgUrl: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&auto=format&fit=crop"
     },
     {
       id: 3,
-      title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
-      offer: "Exclusive Deal 40% Off",
-      buttonText1: "Order Now",
-      buttonText2: "Learn More",
-      imgSrc: assets.header_macbook_image,
+      title: "Juicy Mangoes, Apples, Pomegranates & Bananas",
+      buttonText1: "Order Fruits",
+      buttonText2: "View Catalog",
+      imgUrl: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=800&auto=format&fit=crop"
     },
   ];
 
@@ -35,7 +31,7 @@ const HeaderSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderData.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [sliderData.length]);
 
@@ -44,7 +40,7 @@ const HeaderSlider = () => {
   };
 
   return (
-    <div className="overflow-hidden relative w-full">
+    <div className="relative overflow-hidden w-full rounded-3xl mt-4">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{
@@ -54,41 +50,48 @@ const HeaderSlider = () => {
         {sliderData.map((slide, index) => (
           <div
             key={slide.id}
-            className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#E6E9F2] py-8 md:px-14 px-5 mt-6 rounded-xl min-w-full"
+            className="flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-r from-emerald-900 via-emerald-800 to-green-700 text-white py-8 md:px-14 px-6 rounded-3xl min-w-full shadow-lg"
           >
-            <div className="md:pl-8 mt-10 md:mt-0">
-              <p className="md:text-base text-orange-600 pb-1">{slide.offer}</p>
-              <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold">
+            <div className="md:w-3/5 mt-6 md:mt-0 space-y-3">
+              <h1 className="md:text-[36px] md:leading-[44px] text-2xl font-extrabold tracking-tight">
                 {slide.title}
               </h1>
-              <div className="flex items-center mt-4 md:mt-6 ">
-                <button className="md:px-10 px-7 md:py-2.5 py-2 bg-orange-600 rounded-full text-white font-medium">
+              <p className="text-emerald-100 text-xs md:text-sm font-medium">
+                Quantities available from 500g to 10kg.
+              </p>
+              <div className="flex items-center gap-4 pt-2">
+                <button className="px-8 py-3 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold text-sm rounded-full shadow-md active:scale-95 transition">
                   {slide.buttonText1}
                 </button>
-                <button className="group flex items-center gap-2 px-6 py-2.5 font-medium">
+                <button className="px-6 py-3 border border-emerald-300 hover:bg-emerald-800 text-white font-bold text-sm rounded-full transition">
                   {slide.buttonText2}
-                  <Image className="group-hover:translate-x-1 transition" src={assets.arrow_icon} alt="arrow_icon" />
                 </button>
               </div>
             </div>
-            <div className="flex items-center flex-1 justify-center">
-              <Image
-                className="md:w-72 w-48"
-                src={slide.imgSrc}
-                alt={`Slide ${index + 1}`}
-              />
+
+            <div className="flex items-center md:w-2/5 justify-center relative">
+              <div className="w-56 h-56 md:w-72 md:h-72 relative rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-400/30">
+                <img
+                  src={slide.imgUrl}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">
+                  {slide.badge}
+                </span>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-8">
+      <div className="flex items-center justify-center gap-2 mt-4">
         {sliderData.map((_, index) => (
           <div
             key={index}
             onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${
-              currentSlide === index ? "bg-orange-600" : "bg-gray-500/30"
+            className={`h-2.5 transition-all duration-300 rounded-full cursor-pointer ${
+              currentSlide === index ? "w-8 bg-emerald-600" : "w-2.5 bg-emerald-200"
             }`}
           ></div>
         ))}

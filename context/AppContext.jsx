@@ -1,7 +1,22 @@
 'use client'
-import { productsDummyData, userDummyData } from "@/assets/assets";
+import { productsDummyData, userDummyData, addressDummyData } from "@/assets/assets";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+
+export const weightFactors = {
+  "500g": 0.5,
+  "1kg": 1,
+  "2kg": 2,
+  "3kg": 3,
+  "4kg": 4,
+  "5kg": 5,
+  "6kg": 6,
+  "7kg": 7,
+  "8kg": 8,
+  "9kg": 9,
+  "10kg": 10
+};
 
 export const AppContext = createContext();
 
@@ -11,13 +26,37 @@ export const useAppContext = () => {
 
 export const AppContextProvider = (props) => {
 
-    const currency = process.env.NEXT_PUBLIC_CURRENCY
+    const currency = process.env.NEXT_PUBLIC_CURRENCY || '₹'
     const router = useRouter()
 
     const [products, setProducts] = useState([])
     const [userData, setUserData] = useState(false)
     const [isSeller, setIsSeller] = useState(true)
     const [cartItems, setCartItems] = useState({})
+    const [addresses, setAddresses] = useState([])
+    const [orders, setOrders] = useState([])
+    const [latestOrder, setLatestOrder] = useState(null)
+
+    // Load initial addresses and orders from localStorage if available
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const savedAddresses = localStorage.getItem("qc_addresses");
+            if (savedAddresses) {
+                try { setAddresses(JSON.parse(savedAddresses)); } catch (e) { setAddresses(addressDummyData); }
+            } else {
+                setAddresses(addressDummyData);
+            }
+
+            const savedOrders = localStorage.getItem("qc_orders");
+            if (savedOrders) {
+                try {
+                    const parsed = JSON.parse(savedOrders);
+                    setOrders(parsed);
+                    if (parsed.length > 0) setLatestOrder(parsed[0]);
+                } catch (e) { setOrders([]); }
+            }
+        }
+    }, []);
 
     const fetchProductData = async () => {
         setProducts(productsDummyData)
@@ -27,36 +66,101 @@ export const AppContextProvider = (props) => {
         setUserData(userDummyData)
     }
 
-    const addToCart = async (itemId) => {
-
-        let cartData = structuredClone(cartItems);
-        if (cartData[itemId]) {
-            cartData[itemId] += 1;
+    const addAddress = async (newAddr) => {
+        const updated = [newAddr, ...addresses];
+        setAddresses(updated);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("qc_addresses", JSON.stringify(updated));
         }
-        else {
-            cartData[itemId] = 1;
-        }
-        setCartItems(cartData);
 
+        try {
+            await fetch('/api/address/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newAddr)
+            });
+        } catch (e) {
+            console.log("Local address saved.");
+        }
+
+        toast.success("Address added successfully!");
     }
 
-    const updateCartQuantity = async (itemId, quantity) => {
+    const placeOrder = async (orderInfo) => {
+        const newOrder = {
+            _id: `ORD_${Date.now()}`,
+            date: new Date().toISOString(),
+            formattedDate: new Date().toLocaleString('en-IN', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            }),
+            status: "Order Placed",
+            ...orderInfo
+        };
 
+        const updatedOrders = [newOrder, ...orders];
+        setOrders(updatedOrders);
+        setLatestOrder(newOrder);
+        setCartItems({});
+
+        if (typeof window !== "undefined") {
+            localStorage.setItem("qc_orders", JSON.stringify(updatedOrders));
+        }
+
+        try {
+            const res = await fetch('/api/order/create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderInfo)
+            });
+            const data = await res.json();
+            if (data.success && data.order) {
+                newOrder._id = data.order._id;
+            }
+        } catch (e) {
+            console.log("Local order placed.");
+        }
+
+        toast.success("🎉 Order Placed Successfully! Admin notified.", {
+            duration: 5000,
+            style: {
+                borderRadius: '12px',
+                background: '#065f46',
+                color: '#fff',
+                fontWeight: 'bold',
+            },
+        });
+
+        router.push('/order-placed');
+    }
+
+    const addToCart = async (itemId, weight = "1kg") => {
         let cartData = structuredClone(cartItems);
-        if (quantity === 0) {
-            delete cartData[itemId];
+        const cartKey = itemId.includes("__") ? itemId : `${itemId}__${weight}`;
+        if (cartData[cartKey]) {
+            cartData[cartKey] += 1;
         } else {
-            cartData[itemId] = quantity;
+            cartData[cartKey] = 1;
+        }
+        setCartItems(cartData);
+        toast.success("Item added to cart!");
+    }
+
+    const updateCartQuantity = async (cartKey, quantity) => {
+        let cartData = structuredClone(cartItems);
+        if (quantity <= 0) {
+            delete cartData[cartKey];
+        } else {
+            cartData[cartKey] = quantity;
         }
         setCartItems(cartData)
-
     }
 
     const getCartCount = () => {
         let totalCount = 0;
-        for (const items in cartItems) {
-            if (cartItems[items] > 0) {
-                totalCount += cartItems[items];
+        for (const key in cartItems) {
+            if (cartItems[key] > 0) {
+                totalCount += cartItems[key];
             }
         }
         return totalCount;
@@ -64,13 +168,18 @@ export const AppContextProvider = (props) => {
 
     const getCartAmount = () => {
         let totalAmount = 0;
-        for (const items in cartItems) {
-            let itemInfo = products.find((product) => product._id === items);
-            if (cartItems[items] > 0) {
-                totalAmount += itemInfo.offerPrice * cartItems[items];
+        for (const key in cartItems) {
+            if (cartItems[key] > 0) {
+                const [realId, weight = "1kg"] = key.split("__");
+                let itemInfo = products.find((product) => product._id === realId);
+                if (itemInfo) {
+                    const factor = weightFactors[weight] || 1;
+                    const unitOfferPrice = Math.round(itemInfo.offerPrice * factor);
+                    totalAmount += unitOfferPrice * cartItems[key];
+                }
             }
         }
-        return Math.floor(totalAmount * 100) / 100;
+        return totalAmount;
     }
 
     useEffect(() => {
@@ -87,6 +196,8 @@ export const AppContextProvider = (props) => {
         userData, fetchUserData,
         products, fetchProductData,
         cartItems, setCartItems,
+        addresses, setAddresses, addAddress,
+        orders, setOrders, latestOrder, placeOrder,
         addToCart, updateCartQuantity,
         getCartCount, getCartAmount
     }

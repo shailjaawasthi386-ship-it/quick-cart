@@ -1,54 +1,74 @@
 "use client"
 import React from "react";
-import { assets} from "@/assets/assets";
-import Link from "next/link"
+import { assets } from "@/assets/assets";
+import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
+import { useClerk, UserButton, useUser } from "@clerk/nextjs";
 
 const Navbar = () => {
-
-  const { isSeller, router } = useAppContext();
+  const { router, getCartCount } = useAppContext();
+  const { openSignIn } = useClerk();
+  const { isSignedIn } = useUser();
+  const cartCount = getCartCount();
 
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-300 text-gray-700">
-      <Image
-        className="cursor-pointer w-28 md:w-32"
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md flex items-center justify-between px-4 md:px-12 lg:px-24 py-3 border-b border-emerald-100 shadow-sm text-gray-700">
+      {/* Brand Logo */}
+      <div 
         onClick={() => router.push('/')}
-        src={assets.logo}
-        alt="logo"
-      />
-      <div className="flex items-center gap-4 lg:gap-8 max-md:hidden">
-        <Link href="/" className="hover:text-gray-900 transition">
-          Home
-        </Link>
-        <Link href="/all-products" className="hover:text-gray-900 transition">
-          Shop
-        </Link>
-        <Link href="/" className="hover:text-gray-900 transition">
-          About Us
-        </Link>
-        <Link href="/" className="hover:text-gray-900 transition">
-          Contact
-        </Link>
-
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
-
+        className="flex items-center gap-2 cursor-pointer"
+      >
+        <div className="bg-emerald-600 text-white font-extrabold text-xl p-1.5 rounded-xl flex items-center justify-center shadow-md">
+          🥬
+        </div>
+        <div>
+          <span className="text-xl font-extrabold text-emerald-800 tracking-tight">QuickCart</span>
+        </div>
       </div>
 
-      <ul className="hidden md:flex items-center gap-4 ">
-        <Image className="w-4 h-4" src={assets.search_icon} alt="search icon" />
-        <button className="flex items-center gap-2 hover:text-gray-900 transition">
-          <Image src={assets.user_icon} alt="user icon" />
-          Account
-        </button>
-      </ul>
+      {/* Nav Links */}
+      <div className="flex items-center gap-4 lg:gap-6 max-md:hidden text-sm font-semibold">
+        <Link href="/" className="hover:text-emerald-600 transition">
+          Home
+        </Link>
+        <Link href="/all-products" className="hover:text-emerald-600 transition">
+          All Products
+        </Link>
+        {isSignedIn && (
+          <Link href="/my-orders" className="hover:text-emerald-600 transition">
+            My Orders
+          </Link>
+        )}
+      </div>
 
-      <div className="flex items-center md:hidden gap-3">
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
-        <button className="flex items-center gap-2 hover:text-gray-900 transition">
-          <Image src={assets.user_icon} alt="user icon" />
-          Account
+      {/* Cart & Account */}
+      <div className="flex items-center gap-4">
+        <button 
+          onClick={() => router.push('/cart')}
+          className="relative flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full font-bold text-xs shadow-md transition"
+        >
+          <span>Cart</span>
+          {cartCount > 0 && (
+            <span className="bg-amber-400 text-emerald-950 text-[11px] font-extrabold px-1.5 py-0.5 rounded-full">
+              {cartCount}
+            </span>
+          )}
         </button>
+
+        {isSignedIn ? (
+          <div className="flex items-center gap-2">
+            <UserButton afterSignOutUrl="/" />
+          </div>
+        ) : (
+          <button 
+            onClick={() => openSignIn()}
+            className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 font-bold border border-emerald-300 px-4 py-2 rounded-full text-xs hover:bg-emerald-100 transition shadow-sm"
+          >
+            <Image src={assets.user_icon} alt="user icon" className="w-4 h-4" />
+            <span>Sign In</span>
+          </button>
+        )}
       </div>
     </nav>
   );

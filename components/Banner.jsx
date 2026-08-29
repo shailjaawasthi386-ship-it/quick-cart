@@ -1,37 +1,29 @@
 import React from "react";
-import { assets } from "@/assets/assets";
-import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between md:pl-20 py-14 md:py-0 bg-[#E6E9F2] my-16 rounded-xl overflow-hidden">
-      <Image
-        className="max-w-56"
-        src={assets.jbl_soundbox_image}
-        alt="jbl_soundbox_image"
-      />
-      <div className="flex flex-col items-center justify-center text-center space-y-2 px-4 md:px-0">
-        <h2 className="text-2xl md:text-3xl font-semibold max-w-[290px]">
-          Level Up Your Gaming Experience
+    <div className="flex flex-col md:flex-row items-center justify-between p-8 md:p-12 bg-gradient-to-r from-emerald-800 via-green-700 to-emerald-600 text-white my-12 rounded-3xl shadow-xl overflow-hidden relative">
+      <div className="flex flex-col items-start space-y-3 z-10 md:max-w-xl">
+        <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight leading-tight">
+          Farm Fresh Vegetables & Fruits Delivered Daily!
         </h2>
-        <p className="max-w-[343px] font-medium text-gray-800/60">
-          From immersive sound to precise controls—everything you need to win
-        </p>
-        <button className="group flex items-center justify-center gap-1 px-12 py-2.5 bg-orange-600 rounded text-white">
-          Buy now
-          <Image className="group-hover:translate-x-1 transition" src={assets.arrow_icon_white} alt="arrow_icon_white" />
+        <button className="mt-2 px-8 py-3 bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold text-sm rounded-full shadow-md active:scale-95 transition">
+          Start Shopping →
         </button>
       </div>
-      <Image
-        className="hidden md:block max-w-80"
-        src={assets.md_controller_image}
-        alt="md_controller_image"
-      />
-      <Image
-        className="md:hidden"
-        src={assets.sm_controller_image}
-        alt="sm_controller_image"
-      />
+
+      <div className="mt-6 md:mt-0 z-10 flex items-center justify-center">
+        <div className="w-48 h-48 md:w-60 md:h-60 rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-300/30">
+          <img
+            src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=600&auto=format&fit=crop"
+            alt="Fresh Vegetables Basket"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Decorative Circles */}
+      <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-emerald-500/20 rounded-full blur-2xl"></div>
     </div>
   );
 };
