@@ -491,6 +491,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738670000000,
     "__v": 0
+  },
+  {
+    "_id": "veg_chilli_25",
+    "userId": "user_grocery_admin",
+    "name": "Green Chilli (Hari Mirch)",
+    "description": "",
+    "price": 130,
+    "offerPrice": 100,
+    "image": [
+      "https://images.unsplash.com/photo-1601648764658-cffe7e36a58f?w=600&auto=format&fit=crop"
+    ],
+    "category": "Vegetables",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670100000,
+    "__v": 0
   }
 ]
 
