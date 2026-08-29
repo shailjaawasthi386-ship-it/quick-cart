@@ -437,8 +437,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Squash (Chappan Kaddu)",
     "description": "",
-    "price": 75,
-    "offerPrice": 52,
+    "price": 65,
+    "offerPrice": 50,
     "image": [
       "/squash.webp"
     ],
