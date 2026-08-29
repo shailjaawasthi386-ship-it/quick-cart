@@ -211,8 +211,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Sweet Orange (Malta)",
     "description": "",
-    "price": 160,
-    "offerPrice": 119,
+    "price": 220,
+    "offerPrice": 180,
     "image": [
       "https://images.unsplash.com/photo-1547514701-42782101795e?w=600&auto=format&fit=crop"
     ],
