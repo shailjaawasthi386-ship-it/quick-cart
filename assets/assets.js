@@ -452,8 +452,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Ivy Gourd (Kundru / Tindora)",
     "description": "",
-    "price": 70,
-    "offerPrice": 49,
+    "price": 75,
+    "offerPrice": 60,
     "image": [
       "/kundru.webp"
     ],
