@@ -332,8 +332,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Cauliflower (Phool Gobhi)",
     "description": "",
-    "price": 65,
-    "offerPrice": 45,
+    "price": 100,
+    "offerPrice": 80,
     "image": [
       "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=600&auto=format&fit=crop"
     ],
