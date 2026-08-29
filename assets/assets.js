@@ -347,8 +347,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Cabbage (Patta Gobhi)",
     "description": "",
-    "price": 50,
-    "offerPrice": 35,
+    "price": 65,
+    "offerPrice": 50,
     "image": [
       "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=600&auto=format&fit=crop"
     ],
