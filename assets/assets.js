@@ -240,10 +240,10 @@ export const productsDummyData = [
   {
     "_id": "veg_aloo_08",
     "userId": "user_grocery_admin",
-    "name": "Potato (Aloo)",
+    "name": "Barot Potato (Aloo)",
     "description": "",
-    "price": 40,
-    "offerPrice": 28,
+    "price": 45,
+    "offerPrice": 35,
     "image": [
       "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&auto=format&fit=crop"
     ],
