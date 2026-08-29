@@ -506,6 +506,22 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738670100000,
     "__v": 0
+  },
+  {
+    "_id": "veg_mushroom_26",
+    "userId": "user_grocery_admin",
+    "name": "Mushroom Packet (Appx. 150g)",
+    "description": "",
+    "price": 70,
+    "offerPrice": 50,
+    "unit": "pkt",
+    "image": [
+      "/mushroom.jpeg"
+    ],
+    "category": "Vegetables",
+    "weights": ["1 Packet (150g)", "2 Packets (300g)", "3 Packets (450g)", "4 Packets (600g)", "5 Packets (750g)", "10 Packets (1.5kg)"],
+    "date": 1738670200000,
+    "__v": 0
   }
 ]
 

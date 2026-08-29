@@ -21,7 +21,13 @@ export const weightFactors = {
   "3 pcs": 3,
   "4 pcs": 4,
   "6 pcs": 6,
-  "12 pcs": 12
+  "12 pcs": 12,
+  "1 Packet (150g)": 1,
+  "2 Packets (300g)": 2,
+  "3 Packets (450g)": 3,
+  "4 Packets (600g)": 4,
+  "5 Packets (750g)": 5,
+  "10 Packets (1.5kg)": 10
 };
 
 export const AppContext = createContext();
