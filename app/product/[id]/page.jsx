@@ -16,13 +16,14 @@ const Product = () => {
     const [productData, setProductData] = useState(null);
     const [selectedWeight, setSelectedWeight] = useState("1kg");
 
-    const fetchProductData = async () => {
-        const product = products.find(product => product._id === id);
-        setProductData(product);
-    }
-
     useEffect(() => {
-        fetchProductData();
+        const product = products.find(p => p._id === id);
+        if (product) {
+            setProductData(product);
+            if (product.weights && product.weights.length > 0) {
+                setSelectedWeight(product.weights[0]);
+            }
+        }
     }, [id, products.length]);
 
     const availableWeights = productData?.weights || ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"];

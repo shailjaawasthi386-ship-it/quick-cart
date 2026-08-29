@@ -15,7 +15,13 @@ export const weightFactors = {
   "7kg": 7,
   "8kg": 8,
   "9kg": 9,
-  "10kg": 10
+  "10kg": 10,
+  "1 pc": 1,
+  "2 pcs": 2,
+  "3 pcs": 3,
+  "4 pcs": 4,
+  "6 pcs": 6,
+  "12 pcs": 12
 };
 
 export const AppContext = createContext();

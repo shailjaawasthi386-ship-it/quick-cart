@@ -226,13 +226,14 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Kiwi Fruit",
     "description": "",
-    "price": 290,
-    "offerPrice": 219,
+    "price": 70,
+    "offerPrice": 50,
+    "unit": "pc",
     "image": [
       "/kiwi.webp"
     ],
     "category": "Fruits",
-    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "weights": ["1 pc", "2 pcs", "3 pcs", "4 pcs", "6 pcs", "12 pcs"],
     "date": 1738667977644,
     "__v": 0
   },

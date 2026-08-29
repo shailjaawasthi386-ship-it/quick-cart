@@ -5,9 +5,8 @@ import { useAppContext, weightFactors } from '@/context/AppContext';
 
 const ProductCard = ({ product }) => {
     const { router, cartItems, addToCart, updateCartQuantity } = useAppContext();
-    const [selectedWeight, setSelectedWeight] = useState("1kg");
-
     const availableWeights = product.weights || ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"];
+    const [selectedWeight, setSelectedWeight] = useState(availableWeights[0]);
     const factor = weightFactors[selectedWeight] || 1;
 
     const unitOfferPrice = Math.round(product.offerPrice * factor);
