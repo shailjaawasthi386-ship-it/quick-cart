@@ -166,8 +166,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Banana (Kela)",
     "description": "",
-    "price": 70,
-    "offerPrice": 49,
+    "price": 80,
+    "offerPrice": 60,
     "image": [
       "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&auto=format&fit=crop"
     ],
