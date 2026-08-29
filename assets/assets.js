@@ -567,6 +567,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738670500000,
     "__v": 0
+  },
+  {
+    "_id": "veg_garlic_30",
+    "userId": "user_grocery_admin",
+    "name": "Garlic (Lahsun)",
+    "description": "",
+    "price": 300,
+    "offerPrice": 250,
+    "image": [
+      "/garlic.jpg"
+    ],
+    "category": "Vegetables",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670600000,
+    "__v": 0
   }
 ]
 
