@@ -362,8 +362,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Capsicum (Shimla Mirch)",
     "description": "",
-    "price": 90,
-    "offerPrice": 68,
+    "price": 130,
+    "offerPrice": 100,
     "image": [
       "/capsicum.webp"
     ],
