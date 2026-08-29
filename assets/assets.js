@@ -257,8 +257,8 @@ export const productsDummyData = [
     "userId": "user_grocery_admin",
     "name": "Tomato (Tamatar)",
     "description": "",
-    "price": 50,
-    "offerPrice": 34,
+    "price": 55,
+    "offerPrice": 40,
     "image": [
       "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop"
     ],
