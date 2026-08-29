@@ -86,7 +86,7 @@ export const AppContextProvider = (props) => {
         toast.success("Address added successfully!");
     }
 
-    const placeOrder = async (orderInfo) => {
+    const placeOrder = (orderInfo) => {
         const newOrder = {
             _id: `ORD_${Date.now()}`,
             date: new Date().toISOString(),
@@ -107,22 +107,8 @@ export const AppContextProvider = (props) => {
             localStorage.setItem("qc_orders", JSON.stringify(updatedOrders));
         }
 
-        try {
-            const res = await fetch('/api/order/create', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(orderInfo)
-            });
-            const data = await res.json();
-            if (data.success && data.order) {
-                newOrder._id = data.order._id;
-            }
-        } catch (e) {
-            console.log("Local order placed.");
-        }
-
-        toast.success("🎉 Order Placed Successfully! Admin notified.", {
-            duration: 5000,
+        toast.success("🎉 Order Placed Successfully!", {
+            duration: 4000,
             style: {
                 borderRadius: '12px',
                 background: '#065f46',
@@ -131,7 +117,19 @@ export const AppContextProvider = (props) => {
             },
         });
 
+        // Instant navigation with zero delay
         router.push('/order-placed');
+
+        // Async non-blocking backend sync
+        fetch('/api/order/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderInfo)
+        }).then(res => res.json()).then(data => {
+            if (data?.success && data?.order?._id) {
+                newOrder._id = data.order._id;
+            }
+        }).catch(err => console.log("Background order sync complete."));
     }
 
     const addToCart = async (itemId, weight = "1kg") => {

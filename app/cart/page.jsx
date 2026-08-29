@@ -65,7 +65,7 @@ const Cart = () => {
                               className="block text-xs text-rose-600 font-bold mt-1 hover:underline"
                               onClick={() => updateCartQuantity(cartKey, 0)}
                             >
-                              Hataein (Remove)
+                              Remove
                             </button>
                           </div>
                         </td>
