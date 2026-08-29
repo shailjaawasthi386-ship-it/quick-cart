@@ -1,18 +1,17 @@
 import React from "react";
+import Image from "next/image";
+import { assets } from "@/assets/assets";
 
 const Footer = () => {
   return (
     <footer className="bg-emerald-950 text-emerald-200 mt-16 border-t border-emerald-800">
       <div className="flex flex-col md:flex-row items-start justify-between px-6 md:px-16 lg:px-24 gap-10 py-12">
         <div className="md:w-2/5 space-y-3">
-          <div className="flex items-center gap-2">
-            <div className="bg-emerald-600 text-white font-extrabold text-xl p-1.5 rounded-xl flex items-center justify-center">
-              🥬
-            </div>
-            <div>
-              <span className="text-xl font-extrabold text-white tracking-tight">QuickCart</span>
-            </div>
-          </div>
+          <Image
+            src={assets.logo}
+            alt="logo"
+            className="w-28 md:w-32 h-auto brightness-0 invert"
+          />
           <p className="text-xs text-emerald-300 leading-relaxed">
             Fresh vegetables & fruits delivered directly to your kitchen.
           </p>

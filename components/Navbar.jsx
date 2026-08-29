@@ -15,17 +15,12 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md flex items-center justify-between px-4 md:px-12 lg:px-24 py-3 border-b border-emerald-100 shadow-sm text-gray-700">
       {/* Brand Logo */}
-      <div 
+      <Image
+        className="cursor-pointer w-28 md:w-32 h-auto"
         onClick={() => router.push('/')}
-        className="flex items-center gap-2 cursor-pointer"
-      >
-        <div className="bg-emerald-600 text-white font-extrabold text-xl p-1.5 rounded-xl flex items-center justify-center shadow-md">
-          🥬
-        </div>
-        <div>
-          <span className="text-xl font-extrabold text-emerald-800 tracking-tight">QuickCart</span>
-        </div>
-      </div>
+        src={assets.logo}
+        alt="logo"
+      />
 
       {/* Nav Links */}
       <div className="flex items-center gap-4 lg:gap-6 max-md:hidden text-sm font-semibold">
