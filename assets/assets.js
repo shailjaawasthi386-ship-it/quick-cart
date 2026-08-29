@@ -522,6 +522,21 @@ export const productsDummyData = [
     "weights": ["1 Packet (150g)", "2 Packets (300g)", "3 Packets (450g)", "4 Packets (600g)", "5 Packets (750g)", "10 Packets (1.5kg)"],
     "date": 1738670200000,
     "__v": 0
+  },
+  {
+    "_id": "fruit_guava_27",
+    "userId": "user_grocery_admin",
+    "name": "Guava (Amrood)",
+    "description": "",
+    "price": 130,
+    "offerPrice": 100,
+    "image": [
+      "/guava.jpeg"
+    ],
+    "category": "Fruits",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670300000,
+    "__v": 0
   }
 ]
 
