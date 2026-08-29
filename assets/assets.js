@@ -537,6 +537,21 @@ export const productsDummyData = [
     "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
     "date": 1738670300000,
     "__v": 0
+  },
+  {
+    "_id": "veg_corn_28",
+    "userId": "user_grocery_admin",
+    "name": "Sweet Corn (Bhutta)",
+    "description": "",
+    "price": 65,
+    "offerPrice": 50,
+    "image": [
+      "/corn.jpg"
+    ],
+    "category": "Vegetables",
+    "weights": ["500g", "1kg", "2kg", "3kg", "4kg", "5kg", "6kg", "7kg", "8kg", "9kg", "10kg"],
+    "date": 1738670400000,
+    "__v": 0
   }
 ]
 
